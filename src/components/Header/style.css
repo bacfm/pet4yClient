@@ -1,0 +1,118 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    height: 87px;
+    max-width: 1140px;
+    -webkit-box-shadow: 0px 12px 18px -15px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 12px 18px -15px rgba(0,0,0,0.75);
+box-shadow: 0px 12px 18px -15px rgba(0,0,0,0.75);
+}
+
+.header img {
+    z-index: 100;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 12px 18px -15px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 12px 18px -15px rgba(0,0,0,0.75);
+box-shadow: 0px 12px 18px -15px rgba(0,0,0,0.75);
+    height: 146px;
+    width: 147px;
+}
+.logo-header{
+    border-radius: 50%;
+    background-image: linear-gradient(transparent 60%, #2c393f 50%);
+    height: 146px;
+    width: 147px;
+    margin-right: 25px;
+}
+.user-header {
+    background: #f6f6f6;
+    width: 23%;
+    display: flex;
+}
+.user-link { display: flex; align-items: center; margin: 0 auto;}
+.user-link span {
+    color: #979797;
+    font-weight: 300;
+    cursor: pointer;
+    position: relative;
+}
+.user-link span:first-child {
+    margin-right: 55px;
+}
+.user-link span:first-child:after{
+    content: "";
+    height: 15px;
+    width: 1px;
+    background: #dcede4;
+    position: absolute;
+    top: 2px;
+    right: -23px;
+    background-repeat: no-repeat;
+}
+.user-link span:first-child:before{
+    background-image: url("./img/exit.png");
+}
+.user-link span:nth-child(2):before{
+    background-image: url("./img/trash.png");
+    width: 13px;
+}
+.user-link span:before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: -15px;
+    top: 1px;
+    width: 14px;
+    height: 16px;
+}
+.accept-del-acc{
+    display: block;
+    position: fixed;
+    width: 20%;
+    padding: 50px;
+    z-index: 50;
+    background:white;
+}
+.accept-del-acc h1 {
+    text-align: center;
+}
+.accept-del-acc .del-contrls {
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+@media (max-width: 820px){
+    .header {
+        width: calc(100vw - 6px);
+        background: linear-gradient(to right, rgba(237,237,237,1) 0%, rgba(217,217,217,1) 0%, rgba(227,227,227,1) 0%, rgba(255,255,255,1) 100%);
+        padding: 10px 0 0 5px;
+    }
+    .logo-header img {
+        width: 100%;
+        height: 100%;
+    }
+    .user-header {
+        width: auto;
+        background: none;
+        display: block;
+        padding: 5px 0 0 5px;
+    }
+    .user-link span:first-child {
+        margin-right: 30px;
+    }
+    .user-link {
+        margin: 0;
+        text-align: left;
+        padding-left: 15px;
+    }
+    .accept-del-acc {
+        width: calc(80vw - 100px);
+        right: 10%;
+        top: 40%;
+    }
+    .breed-item .accept-del-acc h1 {
+        width: 100%;
+    }
+}

@@ -1,0 +1,57 @@
+.choose-activity {
+    max-width: 1125px;
+    text-align: center;
+    padding-bottom: 100px;
+    margin: 0 auto;
+}
+.choose-activity h2 {
+    font-size: 19px;
+    font-weight: 300;
+    margin: 65px 0 60px 0;
+}
+.choose-animal {
+    width: 705px;
+    margin: 0 auto;
+    justify-content: space-between;
+    display: flex;
+}
+.choose-animal div {
+    display: flex;
+    width: 288px;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.choose-animal button {
+    font-size: 19px;
+    font-weight: 300;
+    width: 194px;
+    text-align: center;
+    padding: 18px 0;
+    border: 1px solid #c2c2c2;
+    border-radius: 20px;
+    background: #bd1b2b;
+    color: white;
+    margin-top: 60px;
+}
+.choose-animal button:hover{
+    background: #2e9049;
+    cursor: pointer;
+}
+
+@media (max-width: 820px) {
+    .choose-activity {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+    }
+    .choose-animal {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    .choose-animal button {
+        margin: 20px 0 30px 0;
+    }
+}

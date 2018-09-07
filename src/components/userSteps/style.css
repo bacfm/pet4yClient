@@ -1,0 +1,42 @@
+.user-steps {
+    margin-bottom: 30px;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+}
+.user-steps .step{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 19%;
+    min-width: 80px;
+    height: 48px;
+    border: none;
+    border-radius: 25px;
+    background: #ebebeb;
+    font-size: 16px;
+    color: #888888;
+    font-weight: bold;
+}
+.user-steps .step:first-child, .user-steps .step:nth-child(2){
+    margin-right: 35px;
+    position: relative;
+}
+.user-steps .step:first-child:after, .user-steps .step:nth-child(2):after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 12px;
+    background-image: url("./img/arrow.png");
+    background-repeat: no-repeat;
+    right: -25px;
+}
+.user-steps .active {
+    background: #2e9049;
+    color: white;
+    border: none;
+}
+@media (max-width: 820px){
+
+}

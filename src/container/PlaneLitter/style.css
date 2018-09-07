@@ -1,0 +1,181 @@
+.breeds {
+    width: 93%;
+    padding: 80px 3.5% 40px 3.5%;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.breeds h3 {
+    font-size: 24px;
+    font-weight: initial;
+    margin-bottom: 55px;
+}
+.breeds h4 {
+    font-size: 18px;
+    font-weight: initial;
+    margin-top: 50px;
+}
+.litters {
+    width: 100%;
+}
+.litter, .plane-litt, .planed-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+
+    margin-bottom: 20px;
+}
+.planed-item p {
+    width: calc(48% - 55px);
+    background: #f6f6f6;
+    padding: 17px 10px 20px 45px;
+    position: relative;
+}
+.planed-item p:before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 19px;
+    left: 20px;
+    height: 18px;
+    width: 16px;
+}
+.planed-item p:first-child:before{
+    background-image: url("./img/feet.png");
+}
+.planed-item p:nth-child(2):before{
+    background-image: url("./img/red_calendar.png");
+}
+.plane-litt { 
+    margin-bottom: 80px;
+    position: relative;
+}
+.litter p {
+    margin: 0;
+}
+.breed, .date, .DayPickerInput input {
+    border: none;
+    padding: 20px 0 20px 15px;
+    background: white;
+    font-size: 16px;
+    font-weight: 300;
+}
+.planed-item {
+    position: relative;
+}
+
+.planed-item span {
+    position: absolute;
+    width: 18px;
+    height: 23px;
+    top: 33%;
+    right: -25px;
+    background-image: url("./img/delete_icon.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.breed { width: calc(53% - 15px) }
+.date { width: calc(33.9% - 15px) }
+.DayPickerInput { width: 49%}
+.DayPickerInput input { width: calc(100% - 15px); padding: 15px 0 15px 15px;}
+.plane-litt .select-breed-input{
+    border: none;
+    width: calc(49% - 10px);
+    font-weight: 300;
+    padding: 0;
+    height: 51px;
+    border-radius: 3px;
+    padding-left: 10px;
+    background: #dcede4;
+    color: #5b5b5b;
+    font-size: 18px;
+}
+.breeds .DayPickerInput input {
+    font-size: 18px;
+    background: #dcede4;
+    position: relative;
+}
+.add-litt {
+    margin: 0 auto;
+    font-size: 18px;
+    color: white;
+    padding: 18px 45px;
+    border: 1px solid #c2c2c2;
+    border-radius: 25px;
+    background: #bd1b2b;
+}
+.plane-litt .list-controll-not-clicked, .plane-litt .list-controll-clicked{
+    z-index: 51;
+    left: 43%;
+}
+.plane-litt .show-breeds{
+    display: block;
+    width: 49%;
+     max-height: 300px;
+     overflow: auto;
+     position: absolute;
+     left: 0;
+     top: 61px;
+    padding: 0;
+    margin: 0;
+}
+@media (max-width: 820px) {
+    .plane-litt {
+        flex-direction: column;
+    }
+    .plane-litt .select-breed-input {
+        width: calc(100% - 10px);
+        margin-bottom: 15px;
+    }
+    .breeds .plane-litt .list-controll-not-clicked, .breeds .plane-litt .list-controll-clicked{
+        right: 0;
+        left: auto;
+    }
+    .plane-litt .show-breeds {
+        width: 100%;
+        z-index: 50;
+        top: 51px;
+    }
+    .plane-litt .DayPickerInput {
+        width: 100%;
+    }
+    .breeds .DayPickerInput {
+        position: relative;
+    }
+    .planed-item {
+        flex-direction: column;
+    }
+    .planed-item p {
+        width: calc(93% - 55px);
+        margin: 5px 0;
+    }
+    .planed-item span {
+        right: 0;
+        top: 45%;
+    }
+    /* .breeds .DayPickerInput span > * {
+        position: absolute;
+        left: -100%;
+        bottom: -10px;
+
+    } */
+}
+.show-breeds li:hover{
+    color: red;
+}
+
+.show-breeds::-webkit-scrollbar{
+    width: 10px;
+}
+.show-breeds::-webkit-scrollbar-track { 
+    background: #dcede4;
+}
+.show-breeds::-webkit-scrollbar-thumb {
+    height: 50px;
+    background: #479e47;
+    border-radius: 25px;
+}

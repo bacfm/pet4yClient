@@ -1,0 +1,101 @@
+.userPage {
+  width: 82.26%;
+  margin: 0 auto;
+  padding: 90px 0 40px 0;
+  font-family: 'Roboto', sans-serif; }
+  .userPage h3 {
+    margin: 0;
+    font-weight: 500; }
+  .userPage input, .userPage textarea {
+    background: #dcede4;
+    font-size: 19px;
+    font-style: italic; }
+  .userPage .main-inf {
+    display: flex;
+    width: 650px;
+    justify-content: space-between; }
+    .userPage .main-inf input {
+      margin-bottom: 14px;
+      padding: 17px 0 15px 20px;
+      width: 263px;
+      border: 2px solid #c2c2c2;
+      border-radius: 3px; }
+    .userPage .main-inf select {
+      height: 59px;
+      margin-bottom: 14px; }
+  .userPage .user-inf {
+    display: flex;
+    flex-direction: column; }
+    .userPage .user-inf input {
+      width: 240px;
+      border: 2px solid #c2c2c2;
+      border-radius: 3px;
+      display: block;
+      position: relative; }
+  .userPage .user-sec-inf {
+    display: flex;
+    flex-direction: column; }
+  .userPage .required {
+    position: relative;
+    z-index: 0; }
+    .userPage .required :after {
+      content: " ";
+      width: 13px;
+      height: 9px;
+      position: absolute;
+      top: -10px;
+      right: -20px;
+      background-image: url("img/required.png"); }
+  .userPage .messangers {
+    display: flex;
+    width: 650px;
+    padding: 20px 0; }
+    .userPage .messangers .soc-item {
+      margin: 0 20px; }
+      .userPage .messangers .soc-item input {
+        width: 30px;
+        text-align: left; }
+  .userPage .about {
+    display: flex;
+    width: 707px;
+    justify-content: space-between;
+    margin-top: 20px; }
+    .userPage .about .nursery-inf {
+      width: 100%; }
+      .userPage .about .nursery-inf textarea {
+        min-width: calc(650px - 14px);
+        max-width: calc(650px - 14px);
+        min-height: 185px;
+        max-height: 190px;
+        border: 2px solid #c2c2c2;
+        border-radius: 3px;
+        padding: 10px 0 0 10px; }
+  .userPage .user-btn {
+    display: block;
+    margin: 0 auto;
+    font-size: 18px;
+    padding: 18px 45px;
+    border: 1px solid #c2c2c2;
+    border-radius: 25px;
+    background: #bd1b2b;
+    color: white;
+    margin-top: 30px; }
+    .userPage .user-btn:hover {
+      background: #2e9049;
+      cursor: pointer; }
+  .userPage .not-phone input, .userPage .warning input, .userPage .not-email input {
+    border: 2px solid #ff0000; }
+  .userPage .social-links {
+    width: 650px; }
+    .userPage .social-links .social-block {
+      display: flex;
+      padding: 20px 0;
+      justify-content: space-between; }
+      .userPage .social-links .social-block .social-link {
+        width: 400px;
+        padding: 17px 0 15px 20px;
+        border: 2px solid #c2c2c2;
+        border-radius: 3px;
+        margin-bottom: 14px; }
+
+/*# sourceMappingURL=test.css.map */

@@ -1,0 +1,131 @@
+
+.user-inf input, .user-sec-inf input, .social-link {
+    width: 240px;
+    border: 2px solid #c2c2c2;
+    padding: 17px 0 15px 20px;
+    border-radius: 3px;
+    margin-bottom: 14px;
+    display: block;
+    position: relative;
+}
+
+
+
+.messangers {
+    display: flex;
+    width: 650px;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: space-between;
+}
+.messangers .soc-item {
+    margin: 0 20px;
+}
+.user-sec-inf .soc-item input {
+    width: 30px;
+    text-align: left;
+}
+/*.social-check input:checked{ z-index: 1000}*/
+/*.social-check::before{*/
+/*content: '';*/
+/*position: absolute;*/
+/*bottom: 2px;*/
+/*left: 4px;*/
+/*width: 14px;*/
+/*height:14px;*/
+/*border: 1px solid #1e4a1c;*/
+/*border-radius: 3px;*/
+/*background: #dcede4;*/
+/*z-index: 0;*/
+
+/*}*/
+.about{
+    display: flex;
+    width: 707px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.user-sec-inf {
+    display: flex;
+    flex-direction: column;
+}
+.user-sec-inf input{
+    width: 263px;
+    border: 2px solid #c2c2c2;
+    border-radius: 3px;
+}
+.user-sec-inf select {
+    margin-bottom: 14px;
+}
+.nursery-inf {  width:100%;}
+.nursery-inf textarea {
+    width: calc(650px - 14px);
+    min-height: 185px;
+    max-height: 190px;
+    border: 2px solid #c2c2c2;
+    border-radius: 3px;
+    padding: 10px 0 0 10px;
+}
+.center { text-align: center}
+.user-btn{
+    margin: 0 auto;
+    font-size: 18px;
+    padding: 18px 45px;
+    border: 1px solid #c2c2c2;
+    border-radius: 25px;
+    background: #bd1b2b;
+    color: white;
+    margin-top: 30px;
+}
+.user-btn:hover{
+    background: #2e9049;
+    cursor: pointer;
+}
+.not-phone input, .warning input, .not-email input {
+    border: 2px solid #ff0000;;
+}
+/*.warning:after{*/
+/*content: 'Обязательное поле!';*/
+/*padding: 10px 0;*/
+/*top: -30px;*/
+/*}*/
+/*.not-phone:after{*/
+/*content: 'Неправильный номер';*/
+/*padding: 15px 0;*/
+/*top: -40px;*/
+/*z-index: 9999;*/
+
+/*}*/
+/*.not-email:after{*/
+/*content: 'Неправильный email';*/
+/*padding: 15px 0;*/
+/*top: -40px;*/
+/*}*/
+/*.warning:after, .not-phone:after, .not-email:after{*/
+/*right: -120px;*/
+/*z-index: 999;*/
+/*text-align: center;*/
+/*border: 1px solid #ff0000;*/
+/*display: flex;*/
+/*align-items: center;*/
+/*justify-content: center;*/
+/*width: 120px;*/
+/*border-radius: 3px;*/
+/*position: absolute;*/
+/*background: #dcede4;*/
+/*font-size: 14px;*/
+/*}*/
+
+
+/*Social Links*/
+.social-links {
+    width: 650px;
+}
+.social-block {
+    display: flex;
+    padding: 20px 0;
+    justify-content: space-between;
+}
+.social-block-item .social-link{
+    width: 400px;
+}
