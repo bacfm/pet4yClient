@@ -27,7 +27,8 @@ class LitterPage extends Component {
             fci_dad: false,
             fci_mom: false,
             photos_dad: false,
-            photos_mom: false
+            photos_mom: false,
+            showPreloader: false
         }
         this.onCur = this.onCur.bind(this);
         this.onPrice = this.onPrice.bind(this);
@@ -49,6 +50,7 @@ class LitterPage extends Component {
         this.onFciMom = this.onFciMom.bind(this);
         this.onPhDad = this.onPhDad.bind(this);
         this.onPhMom = this.onPhMom.bind(this);
+        this.showSpinner = this.showSpinner.bind(this);
     }
     onFciDad(ev){
         this.setState({fci_dad: !this.state.fci_dad})
@@ -76,7 +78,7 @@ class LitterPage extends Component {
         this.setState({ birthday: day.getFullYear() + '-' + (Number(day.getMonth()) + 1) + '-' + day.getDate()})
     }
     onCur(value){ this.setState({ currency: value })}
-    onPrice(ev){ this.setState({ price: ev.target.value })}
+    onPrice(ev){ this.setState({ price: ev.target.value.replace(/[^\d]/g, '') })}
     onMaleDec(ev){
         this.setState({ male: this.state.male - 1})
     }
@@ -85,6 +87,9 @@ class LitterPage extends Component {
     }
     setBtn(value){
         this.setState({ disabledBtn: value})
+    }
+    showSpinner(value){
+        this.setState({showPreloader: value})
     }
     onMaleInc(ev){ this.setState({ male: this.state.male + 1})}
     onFemInc(ev){ this.setState({ female: this.state.female + 1})}
@@ -96,7 +101,7 @@ class LitterPage extends Component {
         ev.preventDefault();
         const { birthday, price, currency, male, female, dad_titles, mum_titles, mum_fam, dad_fam, commentCost, commentPair, fci_dad, photos_dad, fci_mom, photos_mom } = this.state;
         const { breedId } = this.props;
-        const { setBtn } = this;
+        const { setBtn, showSpinner } = this;
         if(birthday === '' || currency === '' || price === '' ){
             this.setState({error: true});
             window.scrollTo(0,0);
@@ -121,6 +126,7 @@ class LitterPage extends Component {
             }
             this.setState({disabledBtn: true});
             setTimeout(() => this.setState({disabledBtn: false}), 4000);
+            showSpinner(true);
             return fetch('http://api.pet4u.com.ua/api/v1/brood/create', {
                 method: 'POST',
                 headers: { 
@@ -129,19 +135,21 @@ class LitterPage extends Component {
                 },
                 body: JSON.stringify(body)
             })
-                .then(function (res) {
-                    if (res.status !== 201) {
-                        setBtn(false);
-                    }
-                    return res;
-                })
-                .then((res) => res.json())
-                .then((res) => {
-                    if (res.brood_id) {
-                        return window.location.pathname = `/broods/${res.brood_id}/add-photo`
-                    }
-                })
-                .catch((err) => console.log(err))
+            .then(res => {
+                if (res.status !== 201) {
+                    showSpinner(false);
+                    setBtn(false);
+                }
+                return res;
+
+            })
+            .then((res) => res.json())
+            .then((res) => {
+                if (res.brood_id) {
+                    return window.location.pathname = `/broods/${res.brood_id}/add-photo`
+                }
+            })
+            .catch((err) => console.log(err))
         }
     }
     render(){
@@ -235,6 +243,7 @@ class LitterPage extends Component {
                     </div>
                 </div>
                 <div className="submit"><button onClick={this.onClick} disabled={this.state.disabledBtn}>Готово</button></div>
+                {this.state.showPreloader ? <div id="preloader"><span></span></div>: null}
             </div>
         );
     }

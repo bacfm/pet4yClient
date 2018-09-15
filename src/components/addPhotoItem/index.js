@@ -9,7 +9,7 @@ export default class InputForPhotos extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            photos: this.props.get_photos,
+            photos: this.props.get_photos || [],
             progress: null,
             photoError: false
         }
@@ -58,12 +58,16 @@ export default class InputForPhotos extends Component {
                     i++
             }
         } else {
-            for (var img in files) {
-                data.append('imageFiles', files[img]);
+            let i = 0;
+            while (i < files.length){
+                console.log(files[i])
+                data.append('imageFiles', files[i]);
+                i++
             }
         }
-            ev.target.value = '';
+        ev.target.value = '';
         var xhr = new XMLHttpRequest();
+        console.log(this.props.whom, this.props.parent_id)
         xhr.open('POST', `http://api.pet4u.com.ua/api/v1/brood/photo?whom=${this.props.whom}&id=${this.props.parent_id}`, true);
         xhr.setRequestHeader('Authorization', `Token ${window.localStorage.token}`);
         xhr.upload.onprogress = function(ev){
@@ -77,6 +81,7 @@ export default class InputForPhotos extends Component {
                 setPreview(array.photos);
             }
         }
+        console.log(data);
         xhr.send(data);
             // return fetch(`http://project.netway.dp.ua:8000/api/v1/brood/photo?whom=${this.props.whom}&id=${this.props.parent_id}`, {
             //     method: 'POST',
@@ -97,7 +102,7 @@ export default class InputForPhotos extends Component {
             //     .catch((err) => console.log(err))
     }
     render() {
-            const previews = this.state.photos.map((p, idx) => (<PreviewImg onClick={this.onDelete} id={p.id} key={idx} src={`http://api.pet4u.com.ua${p.photo}`}/>));
+            let previews = this.state.photos.map((p, idx) => (<PreviewImg onClick={this.onDelete} id={p.id} key={idx} src={`http://api.pet4u.com.ua${p.photo}`}/>));
             return (
                 <div className="photo-element">
                     {this.state.photos ? previews : ''}

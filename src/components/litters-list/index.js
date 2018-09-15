@@ -53,7 +53,7 @@ class  LittersList extends Component {
         if(show === 0 || show > 0 ){
            let clickedBreed = breeds.filter(b => b.id === show)
             if(!clickedBreed[0]) return null;
-            if(clickedBreed[0].broods.length === 0) return (<li className="list-itm">Незапланировано пометов</li>);
+            if(clickedBreed[0].broods.length === 0) return null;
             const litters = clickedBreed[0].broods.map((lit, idx) => <li key={idx} 
                                                                         className={this.state.clickedLit === lit.id ? "onbreed-click": ""}
                                                                         onClick={(ev) => {this.onClick(lit.id); this.props.onHide(ev)}}>

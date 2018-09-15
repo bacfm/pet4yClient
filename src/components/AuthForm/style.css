@@ -131,6 +131,10 @@
     background-image: url("./img/ru.png");
     top: 15px;
 }
+.auth-field .hidden-select-list li:nth-child(3)::before{
+    background-image: url("./img/br.png");
+    top: 15px;
+}
 .rest-password-btn:hover{
     background: #479e47;
 }

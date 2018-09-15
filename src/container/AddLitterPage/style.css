@@ -266,3 +266,36 @@
 }
 
 
+
+
+@keyframes scroll {
+    0% {
+     transform: translate(0, 0)
+    }
+    100% {
+     transform: translate(1500%, 0);
+    }
+}
+
+
+#preloader {
+    display: block;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, .5)
+}
+
+#preloader span {
+    display: inline-block;
+    height: 15px;
+    width: 15%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    animation: scroll 5s infinite linear;
+}

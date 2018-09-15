@@ -79,7 +79,7 @@ class SignUp extends Component {
             setTimeout(() => {
                 this.setState({invalidPassword: false})
             }, 3000)
-        } else if(phone.search(/\+?(38)?0\d{9}/g) === -1 && phone.search(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/g) === -1){
+        } else if(phone.search(/\+?(38)?0\d{9}/g) === -1 && phone.search(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/g) === -1 && phone.search(/\+?(375)?0\d{9}/g)){
             this.setState({ invalidPhone: true});
             setTimeout(() => this.setState({ invalidPhone: false}), 5000);
         } else if(email.search(/.+@\w+\.\w+/g) === -1){
@@ -130,6 +130,7 @@ class SignUp extends Component {
                     <ul className="hidden-select-list ">
                         <li onClick={() => this.setState({phone: '+380', showPhones: false})}>Украина</li>
                         <li onClick={() => this.setState({phone: '+7', showPhones: false})}>Россия</li>
+                        <li onClick={() => this.setState({phone: '+375', showPhones: false})}>Беларусь</li>
                     </ul>
                     </div>
                     :
@@ -140,7 +141,10 @@ class SignUp extends Component {
                     <br/>
                     Для Украины: +380
                     <br/>
-                    Для России: +7</div>) : ''}
+                    Для России: +7
+                    <br/>
+                    Для Белоруссии: +375
+                    </div>) : ''}
                 </div>
                 <div className={'auth-field' + (this.state.reqiuredField ? ' required-field' : '')}>
                     <label>E-mail</label>

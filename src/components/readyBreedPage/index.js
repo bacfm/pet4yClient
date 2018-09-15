@@ -21,7 +21,11 @@ class BroodInfoPage extends Component{
             notValidLinks: false,
             showAddChild: false,
             showChildDel: null,
-            parentShowDel: ''
+            parentShowDel: '',
+            dadFamDef: null,
+            dadFciDef: null,
+            momFciDef: null,
+            momFamDef: null
         }
         this.onAnimalDel = this.onAnimalDel.bind(this);
         this.onBroodViewChange = this.onBroodViewChange.bind(this);
@@ -39,12 +43,16 @@ class BroodInfoPage extends Component{
                 this.setState({
                     momFeatDefault: nextProps.view.parents.mother.feat,
                     momPedigreeDefault: nextProps.view.parents.mother.pedigree,
+                    momFamDef: nextProps.view.parents.mother.ped_check,
+                    momFciDef: nextProps.view.parents.mother.fci_check
                 });
             }
             if(nextProps.view.parents.father){
                 this.setState({
                     dadFeatDefault: nextProps.view.parents.father.feat,
-                    dadPedigreeDefault: nextProps.view.parents.father.pedigree
+                    dadPedigreeDefault: nextProps.view.parents.father.pedigree,
+                    dadFamDef: nextProps.view.parents.father.ped_check,
+                    dadFciDef: nextProps.view.parents.father.fci_check
                 });
             }
         }
@@ -91,6 +99,8 @@ class BroodInfoPage extends Component{
         }
     }
     render(){
+        console.log(this.state);
+
         if(this.props.view) {
             const {birthday, cost, currency, boys, girls, parents} = this.props.view;
             const male = [];
@@ -132,7 +142,7 @@ class BroodInfoPage extends Component{
                 male.push(<div className="ph-el" key={i + Math.random()}>
                     <h1>F{i} <img className='delete-icon'  src={DeleIcon} onClick={() => this.setState({showChildDel: girlsId[i-1]})} alt='delete'/></h1>
                     <InputForPhotos whom="child" parent_id={girlsId[i - 1]} get_photos={femalePhotos[i-1]}/>
-                    {this.state.showChildDel === boysId[i - 1] ?
+                    {this.state.showChildDel === girlsId[i - 1] ?
                         <div className="overlay">
                             <div className='accept-del-acc popup'>
                                 <span className="close-popup" onClick={() => this.setState({showChildDel: null})}></span>
@@ -182,18 +192,16 @@ class BroodInfoPage extends Component{
                             <input type="text" placeholder="Ссылка на родословную" className={(this.state.notValidLinks ? 'warning' : '')} value={this.state.momPedigreeDefault ? this.state.momPedigreeDefault : parents.mother.pedigree}  onChange={(ev) => this.setState({momPedigreeDefault: ev.target.value })}/>
                             <div className="parent-check">
                             <div className="parent-check-item">
-                                <input style={{width: 'auto'}} defaultChecked={parents.mother.fci_check} ref={input => this.fci_mom = input} type="checkbox"/>
+                                <input style={{width: 'auto'}} onChange={(ev) => this.setState({momFciDef: !this.state.momFciDef})} checked={this.state.momFciDef !== null ? this.state.momFciDef : parents.mother.fci_check} ref={input => this.fci_mom = input} type="checkbox"/>
                                 <label>Отсутствует родословная FCI</label>
                             </div> 
                             <div className="parent-check-item">
-                            <input style={{width: 'auto'}} type="checkbox" defaultChecked={parents.mother.ped_check} ref={input => this.ph_mom = input}/>
+                            <input style={{width: 'auto'}} type="checkbox" onChange={(ev) => this.setState({momFamDef: !this.state.momFamDef})} checked={this.state.momFamDef !== null ? this.state.momFamDef : parents.mother.ped_check} ref={input => this.ph_mom = input}/>
                             <label>Родословная на фото</label>
                         </div> 
                         </div>
                             {this.state.notValidLinks ? (<div className="auth-err" style={{textAlign: 'center'}}>Эти поля должны содержать ссылки.</div>) : ''}
                             </div>
-                            {/*<p>{parents.mother.feat}</p>*/}
-                            {/*<p>{parents.mother.pedigree}</p>*/}
                         </div>) : ''}
                         {this.props.view.parents.father ? (<div className="parent">
                             <h3>Папа ﻿+ Фото Родословной</h3>
@@ -202,18 +210,16 @@ class BroodInfoPage extends Component{
                                 <input type="text" placeholder="Ссылка на родословную" className={(this.state.notValidLinks ? 'warning' : '')} value={this.state.dadPedigreeDefault ? this.state.dadPedigreeDefault : parents.father.pedigree} onChange={(ev) => this.setState({dadPedigreeDefault: ev.target.value })}/>
                                 <div className="parent-check">
                             <div className="parent-check-item">
-                                <input style={{width: 'auto'}} type="checkbox" defaultChecked={parents.father.fci_check} ref={input => this.fci_dad = input}/>
+                                <input style={{width: 'auto'}} type="checkbox" checked={this.state.dadFciDef !== null ? this.state.dadFciDef : parents.father.fci_check} onChange={(ev) => this.setState({dadFciDef: !this.state.dadFciDef})} ref={input => this.fci_dad = input}/>
                                 <label>Отсутствует родословная FCI</label>
                             </div> 
                             <div className="parent-check-item">
-                            <input style={{width: 'auto'}} type="checkbox"  defaultChecked={parents.father.ped_check} ref={input => this.ph_dad = input}/>
+                            <input style={{width: 'auto'}} type="checkbox" checked={this.state.dadFamDef !== null ? this.state.dadFamDef : parents.father.ped_check} onChange={(ev) => this.setState({dadFamDef: !this.state.dadFamDef})} ref={input => this.ph_dad = input}/>
                             <label>Родословная на фото</label>
                         </div> 
                         </div>
                                 {this.state.notValidLinks ? (<div className="auth-err" style={{textAlign: 'center'}}>Эти поля должны содержать ссылки.</div>) : ''}
                             </div>
-                            {/*<p>{parents.father.feat}</p>*/}
-                            {/*<p>{parents.father.pedigree}</p>*/}
                         </div>) : ''}
                     </div>
                     {male}
